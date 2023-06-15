@@ -25,16 +25,10 @@ const CountriesList = () => {
   const [countries, setCountries] = useState<ICountryDetails[]>([]);
 
   /**
-   * Sorting loading state
-   */
-  const [isSorting, setIsSorting] = useState<boolean>(false);
-
-  /**
    * Sort countries based on GeoLocation
    * @param location User's current location
    */
   const handleSort = (location: ILatLong) => {
-    setIsSorting((prev) => !prev);
     if (data && location) {
       const sorted = [...data].sort((a, b) => {
         const [firstLat, firstLng] = a.capitalInfo.latlng;
@@ -55,14 +49,13 @@ const CountriesList = () => {
 
       setCountries(sorted);
     }
-    setIsSorting((prev) => !prev);
   };
 
   useEffect(() => {
     setCountries(data ?? []);
   }, [data]);
 
-  if (isLoading || isSorting) {
+  if (isLoading) {
     return <Loader />;
   }
 

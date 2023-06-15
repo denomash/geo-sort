@@ -28,4 +28,4 @@ You will be promted to enter a valid email and a password in order to continue. 
 
 ## Deployment
 
-Here is the [link to the deployment](https://jokes-app-one.vercel.app/login)
+Here is the [link to the deployment](https://geo-sort.vercel.app/)
